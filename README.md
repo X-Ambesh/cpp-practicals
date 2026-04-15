@@ -570,3 +570,55 @@ int main() {
     return 0;
 }
 ```
+### 11. Create a class Student containing fields for Roll No., Name, Class, Year and Total Marks.
+Write a program to store 5 objects of Student class in a file. Retrieve these records from
+the file and display them.
+
+```cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+class Student {
+public:
+    int rollNo;
+    char name[30];
+    char studentClass[10];
+    int year;
+    float totalMarks;
+
+    void input() {
+        cin >> rollNo >> name >> studentClass >> year >> totalMarks;
+    }
+
+    void display() {
+        cout << rollNo << " " << name << " " << studentClass << " "
+             << year << " " << totalMarks << endl;
+    }
+};
+
+int main() {
+    Student s;
+
+    ofstream outFile("students.txt", ios::binary);
+
+    for (int i = 0; i < 5; i++) {
+        s.input();
+        outFile.write((char*)&s, sizeof(s));
+    }
+
+    outFile.close();
+
+    ifstream inFile("students.txt", ios::binary);
+
+    cout << "\nStudent Records:\n";
+
+    while (inFile.read((char*)&s, sizeof(s))) {
+        s.display();
+    }
+
+    inFile.close();
+
+    return 0;
+}
+```
