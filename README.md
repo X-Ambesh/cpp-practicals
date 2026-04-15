@@ -7,7 +7,7 @@ command line argument is not found then prompt the user to enter the value of n.
 
 ```cpp
 #include <iostream>
-#include <cstdlib>  // for atoi()
+#include <cstdlib>  
 
 using namespace std;
 
@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
     int sum = 0;
 
     if (argc > 1) {
-        n = atoi(argv[1]);  // Convert argument to integer
+        n = atoi(argv[1]);  
     } else {
         cout << "Enter the value of n: ";
         cin >> n;
@@ -52,12 +52,12 @@ int main() {
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             if (arr[i] == arr[j]) {
-                // Shift elements to left
+                
                 for (int k = j; k < n - 1; k++) {
                     arr[k] = arr[k + 1];
                 }
-                n--;      // Reduce size
-                j--;      // Check same position again
+                n--;
+                j--;      
             }
         }
     }
@@ -77,11 +77,11 @@ in the text entered as command line arguments.
 
 ```cpp
 #include <iostream>
-#include <cctype>   // for isalpha() and tolower()
+#include <cctype>   
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    int count[26] = {0};  // For A-Z
+    int count[26] = {0};  
 
     if (argc < 2) {
         cout << "Please provide text as command line arguments.\n";
