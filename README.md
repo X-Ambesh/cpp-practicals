@@ -628,7 +628,6 @@ int main() {
 #include <iostream>
 using namespace std;
 
-// Function to compute GCD using Euclidean algorithm
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
